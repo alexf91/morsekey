@@ -100,8 +100,8 @@ def main():
                         output = True,
                         stream_callback=callback)
     
-    dit_samples = args.samplerate * 1.2 / args.wpm
-    dah_samples = args.samplerate * 1.2 / args.wpm * 3
+    dit_samples = int(args.samplerate * 1.2 / args.wpm)
+    dah_samples = int(args.samplerate * 1.2 / args.wpm * 3)
 
     dit = np.array(np.sin(2*np.pi*args.frequency * np.arange(dit_samples) / args.samplerate) * 127, dtype=np.int8)
     dit = np.concatenate((dit, np.zeros(dit_samples, dtype=np.int8) * 127))
